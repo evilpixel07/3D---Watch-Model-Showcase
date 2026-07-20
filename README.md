@@ -1,4 +1,4 @@
-# ARCIS — Six hands. One standard.
+# ARCIS â€” Six hands. One standard.
 
 > An immersive, scroll-driven 3D product showcase for a fictional luxury watch brand, built with Three.js and GSAP.
 
@@ -8,7 +8,7 @@
 
 ## Overview
 
-ARCIS is a cinematic, single-page web experience that guides the user through eight scroll-driven sections, each revealing a different aspect of a luxury watch collection. The camera animates through precise keyframe paths as the user scrolls, 3D models crossfade in and out, and the lighting rig updates per-section — all orchestrated by a unified `SceneManager`.
+ARCIS is a cinematic, single-page web experience that guides the user through eight scroll-driven sections, each revealing a different aspect of a luxury watch collection. The camera animates through precise keyframe paths as the user scrolls, 3D models crossfade in and out, and the lighting rig updates per-section â€” all orchestrated by a unified `SceneManager`.
 
 The project is a pure-frontend showcase (no backend, no framework) built for maximum visual fidelity and smooth performance on both desktop and mobile.
 
@@ -16,18 +16,18 @@ The project is a pure-frontend showcase (no backend, no framework) built for max
 
 ## Features
 
-- **Scroll-driven 3D camera** — per-section keyframe paths interpolated in real time against scroll progress
-- **Dynamic lighting rig** — key, fill, and rim lights defined per section with animated sweeps
-- **HDRI environment** — HDR image-based lighting for realistic reflections on watch surfaces
-- **Model carousel** — the "Collection" section arranges all six watches in a 3D carousel with interactive orbit controls
-- **Cross-fade transitions** — models dissolve in/out between sections using opacity tweens
-- **Animated wave grid** — a canvas-drawn interactive wave mesh in the background responds to cursor movement
-- **Cursor parallax** — subtle camera offset driven by mouse position for a living-world feel
-- **Premium loader screen** — tracks GLB and HDRI asset loading with a branded progress animation
-- **Section navigation** — burger-menu overlay lists all named sections for quick jumping
-- **DRACO compression** — all `.glb` models use Draco compression for fast loads
-- **Responsive** — separate mobile camera keyframes and pixel-ratio capping for mobile performance
-- **Reduced-motion support** — respects `prefers-reduced-motion` throughout all GSAP timelines
+- **Scroll-driven 3D camera** â€” per-section keyframe paths interpolated in real time against scroll progress
+- **Dynamic lighting rig** â€” key, fill, and rim lights defined per section with animated sweeps
+- **HDRI environment** â€” HDR image-based lighting for realistic reflections on watch surfaces
+- **Model carousel** â€” the "Collection" section arranges all six watches in a 3D carousel with interactive orbit controls
+- **Cross-fade transitions** â€” models dissolve in/out between sections using opacity tweens
+- **Animated wave grid** â€” a canvas-drawn interactive wave mesh in the background responds to cursor movement
+- **Cursor parallax** â€” subtle camera offset driven by mouse position for a living-world feel
+- **Premium loader screen** â€” tracks GLB and HDRI asset loading with a branded progress animation
+- **Section navigation** â€” burger-menu overlay lists all named sections for quick jumping
+- **DRACO compression** â€” all `.glb` models use Draco compression for fast loads
+- **Responsive** â€” separate mobile camera keyframes and pixel-ratio capping for mobile performance
+- **Reduced-motion support** â€” respects `prefers-reduced-motion` throughout all GSAP timelines
 
 ---
 
@@ -41,7 +41,7 @@ The project is a pure-frontend showcase (no backend, no framework) built for max
 | Fonts | Fraunces (display), Inter (body), Galindo (hero accent) |
 | Model compression | Draco (via Google CDN decoder) |
 | Debug GUI | [lil-gui](https://lil-gui.georgealways.com/) |
-| Testing | [Playwright](https://playwright.dev/) |
+
 
 ---
 
@@ -50,42 +50,42 @@ The project is a pure-frontend showcase (no backend, no framework) built for max
 ```
 arcis/
 +-- public/
-¦   +-- models/              # DRACO-compressed GLB watch models (model1–model6.glb)
-¦   +-- hdri/                # HDR environment maps
-¦   +-- favicon.svg / .png
-¦   +-- apple-touch-icon.png
-¦   +-- og-image.png
-¦
+Â¦   +-- models/              # DRACO-compressed GLB watch models (model1â€“model6.glb)
+Â¦   +-- hdri/                # HDR environment maps
+Â¦   +-- favicon.svg / .png
+Â¦   +-- apple-touch-icon.png
+Â¦   +-- og-image.png
+Â¦
 +-- src/
-¦   +-- main.js              # Entry point — bootstraps loader, waves, scene, nav
-¦   ¦
-¦   +-- scene/
-¦   ¦   +-- SceneManager.js  # Root orchestrator: renderer, RAF loop, resize, scroll
-¦   ¦   +-- ModelManager.js  # GLB loading, caching, transitions, carousel, float
-¦   ¦   +-- CameraRig.js     # Camera keyframe interpolation per section
-¦   ¦   +-- LightingRig.js   # Per-section key/fill/rim light management + sweeps
-¦   ¦
-¦   +-- sections/
-¦   ¦   +-- sectionConfig.js     # Single source of truth for all 8 section definitions
-¦   ¦   +-- SectionController.js # Scroll-to-section mapping + EventBus dispatch
-¦   ¦   +-- CopyController.js    # Text/copy animation per section (GSAP)
-¦   ¦
-¦   +-- ui/
-¦   ¦   +-- LoaderScreen.js  # Asset preloader with branded progress UI
-¦   ¦   +-- NavController.js # Burger menu + section overlay navigation
-¦   ¦
-¦   +-- utils/
-¦   ¦   +-- Waves.js          # Canvas wave grid animation (cursor-interactive)
-¦   ¦   +-- CursorParallax.js # Mouse-driven camera offset
-¦   ¦   +-- EventBus.js       # Minimal pub/sub for cross-module communication
-¦   ¦   +-- reducedMotion.js  # prefers-reduced-motion query helper
-¦   ¦
-¦   +-- styles/
-¦       +-- tokens.css  # Design tokens: colors, type scale, spacing, motion, z-index
-¦       +-- base.css    # CSS reset + base element styles
-¦       +-- layout.css  # Section layout, navbar, overlays
-¦       +-- loader.css  # Loader screen styles
-¦
+Â¦   +-- main.js              # Entry point â€” bootstraps loader, waves, scene, nav
+Â¦   Â¦
+Â¦   +-- scene/
+Â¦   Â¦   +-- SceneManager.js  # Root orchestrator: renderer, RAF loop, resize, scroll
+Â¦   Â¦   +-- ModelManager.js  # GLB loading, caching, transitions, carousel, float
+Â¦   Â¦   +-- CameraRig.js     # Camera keyframe interpolation per section
+Â¦   Â¦   +-- LightingRig.js   # Per-section key/fill/rim light management + sweeps
+Â¦   Â¦
+Â¦   +-- sections/
+Â¦   Â¦   +-- sectionConfig.js     # Single source of truth for all 8 section definitions
+Â¦   Â¦   +-- SectionController.js # Scroll-to-section mapping + EventBus dispatch
+Â¦   Â¦   +-- CopyController.js    # Text/copy animation per section (GSAP)
+Â¦   Â¦
+Â¦   +-- ui/
+Â¦   Â¦   +-- LoaderScreen.js  # Asset preloader with branded progress UI
+Â¦   Â¦   +-- NavController.js # Burger menu + section overlay navigation
+Â¦   Â¦
+Â¦   +-- utils/
+Â¦   Â¦   +-- Waves.js          # Canvas wave grid animation (cursor-interactive)
+Â¦   Â¦   +-- CursorParallax.js # Mouse-driven camera offset
+Â¦   Â¦   +-- EventBus.js       # Minimal pub/sub for cross-module communication
+Â¦   Â¦   +-- reducedMotion.js  # prefers-reduced-motion query helper
+Â¦   Â¦
+Â¦   +-- styles/
+Â¦       +-- tokens.css  # Design tokens: colors, type scale, spacing, motion, z-index
+Â¦       +-- base.css    # CSS reset + base element styles
+Â¦       +-- layout.css  # Section layout, navbar, overlays
+Â¦       +-- loader.css  # Loader screen styles
+Â¦
 +-- index.html       # App shell with all 8 sections pre-rendered as HTML
 +-- vite.config.js
 +-- package.json
@@ -110,10 +110,10 @@ The experience is divided into **8 named sections**, each defined in `sectionCon
 
 Each section config entry defines:
 
-- **Camera keyframes** — `[progress, position, target, fov]` tuples (with optional mobile overrides)
-- **Models** — which GLB slots to load, their position, scale, and behaviour flags (`float`, `rotY`, `parallax`, `carousel`, `visibleAt`)
-- **Lighting** — `envIntensity` + key / fill / rim light positions, intensities, colors, and optional sweep destinations
-- **Duration** — scroll distance in virtual pixels the section spans
+- **Camera keyframes** â€” `[progress, position, target, fov]` tuples (with optional mobile overrides)
+- **Models** â€” which GLB slots to load, their position, scale, and behaviour flags (`float`, `rotY`, `parallax`, `carousel`, `visibleAt`)
+- **Lighting** â€” `envIntensity` + key / fill / rim light positions, intensities, colors, and optional sweep destinations
+- **Duration** â€” scroll distance in virtual pixels the section spans
 
 ---
 
@@ -160,7 +160,7 @@ npm run preview
 `SceneManager` listens to `window.scroll` and maps the cumulative scroll position against each section's `duration` to produce a normalised `[0, 1]` progress value. This drives both the camera keyframe interpolation (`CameraRig`) and text copy animations (`CopyController`) simultaneously.
 
 ### Model Slots
-`ModelManager` uses a named **slot** system (`a`–`f`). Each section requests models by slot; if the same slot + file was loaded in a previous section it is pulled from an in-memory `Map` cache — no re-download. Transitioning between sections fades old slot meshes out while new ones fade in, enabling seamless crossfades without scene graph thrashing.
+`ModelManager` uses a named **slot** system (`a`â€“`f`). Each section requests models by slot; if the same slot + file was loaded in a previous section it is pulled from an in-memory `Map` cache â€” no re-download. Transitioning between sections fades old slot meshes out while new ones fade in, enabling seamless crossfades without scene graph thrashing.
 
 ### EventBus
 A tiny pub/sub (`EventBus`) decouples the scroll controller from the camera, lighting, copy, and nav modules. Sections emit a `section:change` event; subscribers react independently with no direct coupling.
