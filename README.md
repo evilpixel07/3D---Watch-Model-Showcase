@@ -41,7 +41,7 @@ The project is a pure-frontend showcase (no backend, no framework) built for max
 | Fonts | Fraunces (display), Inter (body), Galindo (hero accent) |
 | Model compression | Draco (via Google CDN decoder) |
 | Debug GUI | [lil-gui](https://lil-gui.georgealways.com/) |
-
+| Testing | [Playwright](https://playwright.dev/) |
 
 ---
 
