@@ -1,0 +1,304 @@
+/* ============================================================
+   loader.css — Arcis Premium Loading Screen
+   ============================================================
+   All classes are prefixed with "al-" (arcis-loader) to prevent
+   any collision with existing site styles.
+   ============================================================ */
+
+/* ── Root overlay ─────────────────────────────────────────── */
+#arcis-loader {
+    /* Full-screen fixed overlay above everything */
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    /* GPU-accelerated layer */
+    will-change: transform;
+    transform: translateZ(0);
+
+    /* Disable scroll on the body content behind */
+    overflow: hidden;
+
+    /* Flex centre for the stage */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ── Ivory background panel ───────────────────────────────── */
+.al-bg {
+    position: absolute;
+    inset: 0;
+    background: #F5F1EA;    /* --color-bone from tokens */
+
+    /* Very subtle warm radial vignette */
+    background: radial-gradient(
+        ellipse 80% 80% at 50% 50%,
+        #FAF8F4 0%,
+        #EDE6D9 100%
+    );
+}
+
+/* ── Noise grain texture (CSS) ────────────────────────────── */
+.al-grain {
+    position: absolute;
+    inset: 0;
+    /* Tiny pseudo-noise via repeating SVG filter-free trick */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+/* ── Centre stage ─────────────────────────────────────────── */
+.al-stage {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+
+    /* GPU layer for GSAP transforms */
+    will-change: transform, opacity;
+}
+
+/* ── Watch bezel ring wrapper ─────────────────────────────── */
+.al-ring-wrap {
+    position: relative;
+    width: clamp(160px, 22vw, 240px);
+    height: clamp(160px, 22vw, 240px);
+    margin-bottom: 28px;
+}
+
+.al-svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+/* ── Tick marks (watch dial markers) ─────────────────────── */
+.al-ticks line {
+    stroke: #C9A66B;        /* --color-champagne */
+    opacity: 0.35;
+    stroke-linecap: round;
+}
+
+/* ── Ghost track ring ─────────────────────────────────────── */
+.al-track {
+    stroke: #B7BEC2;        /* --color-steel-mist */
+    opacity: 0.2;
+}
+
+/* ── Progress fill ring ───────────────────────────────────── */
+.al-ring {
+    stroke: #C9A66B;        /* --color-champagne */
+    /* stroke-dasharray / stroke-dashoffset set in JS */
+    transition: stroke-width 0.1s ease;
+    filter: drop-shadow(0 0 3px rgba(201, 166, 107, 0.5));
+}
+
+/* ── Diamond centre ornament ──────────────────────────────── */
+.al-diamond {
+    fill: none;
+    stroke: #C9A66B;
+    stroke-width: 0.75;
+    opacity: 0.65;
+}
+
+/* ── Sweep second hand ────────────────────────────────────── */
+.al-hand {
+    stroke: #2B241C;        /* --color-umber-ink */
+    stroke-width: 0.6;
+    opacity: 0.55;
+    /* x2 / y2 animated via rAF — no CSS transition needed */
+}
+
+/* ── Centre pivot dot ─────────────────────────────────────── */
+.al-centre-dot {
+    fill: #C9A66B;
+}
+
+/* ── Brand wordmark ───────────────────────────────────────── */
+.al-wordmark {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 700;
+    font-size: clamp(11px, 1.1vw, 14px);
+    letter-spacing: 0.28em;
+    color: #5C5245;         /* --color-soft-umber */
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    opacity: 0.7;
+}
+
+/* ── Percentage counter ───────────────────────────────────── */
+.al-pct-wrap {
+    display: flex;
+    align-items: baseline;
+    gap: 2px;
+    line-height: 1;
+    margin-bottom: 10px;
+    will-change: transform, opacity;
+}
+
+.al-pct {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 900;
+    font-size: clamp(52px, 8vw, 88px);
+    line-height: 1;
+    color: #2B241C;         /* --color-umber-ink */
+    letter-spacing: -0.04em;
+
+    /* Monospace-style numbers so they don't shift width */
+    font-variant-numeric: tabular-nums;
+    -webkit-font-smoothing: antialiased;
+
+    /* GPU acceleration */
+    will-change: contents;
+}
+
+.al-pct-sym {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: clamp(20px, 2.8vw, 32px);
+    color: #5C5245;
+    letter-spacing: 0;
+    margin-bottom: 4px;
+    opacity: 0.6;
+    align-self: flex-start;
+    margin-top: 10px;
+}
+
+/* ── Status label ─────────────────────────────────────────── */
+.al-label {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    will-change: opacity;
+}
+
+.al-label-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: clamp(11px, 1vw, 13px);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #5C5245;
+    opacity: 0.55;
+}
+
+/* Animated three-dot ellipsis after the label */
+.al-label-dots::after {
+    content: '';
+    display: inline-block;
+    width: 1.4em;
+    animation: al-dots 1.4s steps(4, end) infinite;
+    overflow: hidden;
+    vertical-align: bottom;
+}
+
+@keyframes al-dots {
+    0%   { content: '';    }
+    25%  { content: '.';   }
+    50%  { content: '..';  }
+    75%  { content: '...'; }
+    100% { content: '';    }
+}
+
+/* ── Progress bar (bottom of screen) ─────────────────────── */
+.al-bar-wrap {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    z-index: 3;
+    will-change: opacity;
+    overflow: hidden;
+}
+
+.al-bar-bg {
+    position: absolute;
+    inset: 0;
+    background: rgba(43, 36, 28, 0.08);
+}
+
+.al-bar-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;                         /* animated via JS */
+    background: #C9A66B;              /* --color-champagne */
+    transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1); /* smooth ease-out */
+    will-change: width;
+}
+
+/* Gleam / specular sweep on the bar */
+.al-bar-gleam {
+    position: absolute;
+    top: 0;
+    left: -60px;                       /* position driven by JS */
+    width: 80px;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(255, 255, 255, 0.6) 50%,
+        transparent 100%
+    );
+    will-change: left;
+    pointer-events: none;
+}
+
+/* ── Corner typographic stamps ────────────────────────────── */
+.al-stamp {
+    position: absolute;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: clamp(9px, 0.75vw, 11px);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #5C5245;
+    opacity: 0.3;
+    z-index: 3;
+}
+
+.al-stamp--tl {
+    top: 28px;
+    left: 36px;
+}
+
+.al-stamp--br {
+    bottom: 20px;
+    right: 36px;
+}
+
+/* ── Responsive overrides ─────────────────────────────────── */
+@media (max-width: 480px) {
+    .al-stamp--tl { top: 18px; left: 20px; }
+    .al-stamp--br { bottom: 14px; right: 20px; }
+    .al-ring-wrap { margin-bottom: 20px; }
+    .al-wordmark  { margin-bottom: 4px; }
+    .al-pct-wrap  { margin-bottom: 8px; }
+}
+
+/* ── Reduced-motion: cut all animations ───────────────────── */
+@media (prefers-reduced-motion: reduce) {
+    .al-label-dots::after {
+        animation: none;
+        content: '...';
+    }
+    .al-ring {
+        transition: none;
+    }
+    .al-bar-fill {
+        transition: none;
+    }
+}
+
+/* ── Body lock while loader is active ─────────────────────── */
+body:not(.site-ready) {
+    overflow: hidden;
+}
+

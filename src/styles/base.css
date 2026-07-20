@@ -1,0 +1,20 @@
+@import '@fontsource/fraunces/300.css';
+@import '@fontsource/fraunces/500.css';
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/900.css';
+@import '@fontsource/inter/700.css';
+
+*, *::before, *::after { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: var(--fw-body-regular);
+  color: var(--color-umber-ink);
+  background: var(--color-bone);
+  -webkit-font-smoothing: antialiased;
+}

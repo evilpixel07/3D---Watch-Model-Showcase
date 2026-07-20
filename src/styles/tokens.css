@@ -1,0 +1,159 @@
+
+
+/* === COLORS === */
+:root {
+  --color-bone:        #F5F1EA;
+  --color-warm-linen:  #EDE6D9;
+  --color-umber-ink:   #2B241C;
+  --color-soft-umber:  #5C5245;
+  --color-champagne:   #C9A66B;
+  --color-steel-mist:  #B7BEC2;
+  --color-ember-clay:  #A85C3D;
+  --color-shell-white: #FAF8F4;
+}
+
+/* === FONT FAMILIES === */
+:root {
+  --font-display:  'Fraunces', Georgia, serif;
+  --font-body:     'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-hero:     'Inter', sans-serif;       
+}
+
+/* === FONT WEIGHTS === */
+:root {
+  --fw-light:   300;
+  --fw-regular: 400;
+  --fw-medium:  500;
+  --fw-black:   900;                            
+
+ 
+  --ff-headline:      var(--font-display);
+  --ff-body:          var(--font-body);
+  --fw-headline-light:  var(--fw-light);
+  --fw-headline-medium: var(--fw-medium);
+  --fw-body-regular:    var(--fw-regular);
+  --fw-body-medium:     var(--fw-medium);
+}
+
+
+:root {
+  /* Line 1 — "ARCIS"  */
+  --ff-hero-line1:          var(--font-hero);
+  --fw-hero-line1:          900;
+  --fs-hero-line1-desktop:  96px;
+  --lh-hero-line1-desktop:  1;
+  --ls-hero-line1-desktop:  0.15em;
+  --fs-hero-line1-mobile:   44px;
+  --lh-hero-line1-mobile:   1;
+  --ls-hero-line1-mobile:   0.12em;
+
+ 
+  --ff-hero-line2:          var(--font-hero);
+  --fw-hero-line2:          400;
+  --fs-hero-line2-desktop:  24px;
+  --lh-hero-line2-desktop:  1.3;
+  --ls-hero-line2-desktop:  0.08em;
+  --fs-hero-line2-mobile:   16px;
+  --lh-hero-line2-mobile:   1.3;
+  --ls-hero-line2-mobile:   0.06em;
+}
+
+/* === SECTION TYPOGRAPHY — Sections 01–07 (Fraunces + Inter) === */
+:root {
+
+  --fs-section-headline-desktop: 56px;
+  --lh-section-headline-desktop: 62px;
+  --fs-section-headline-mobile:  32px;
+  --lh-section-headline-mobile:  38px;
+
+ 
+  --fs-subheadline-desktop: 28px;
+  --lh-subheadline-desktop: 36px;
+  --fs-subheadline-mobile:  20px;
+  --lh-subheadline-mobile:  27px;
+
+
+  --fs-body-desktop: 18px;
+  --lh-body-desktop: 30px;
+  --fs-body-mobile:  16px;
+  --lh-body-mobile:  26px;
+
+ 
+  --fs-caption-desktop: 14px;
+  --lh-caption-desktop: 20px;
+  --fs-caption-mobile:  13px;
+  --lh-caption-mobile:  18px;
+
+
+  --fs-nav-desktop: 13px;
+  --ls-nav-desktop: 0.08em;
+  --fs-nav-mobile:  12px;
+  --ls-nav-mobile:  0.06em;
+
+  
+  --fs-overlay-desktop: 40px;
+  --fs-overlay-mobile:  24px;
+
+ 
+  --fs-wordmark-closing: 72px;
+}
+
+/* === SPACING & SIZING === */
+:root {
+  --space-unit: 8px;
+
+
+  --section-padding-top:           120px;
+  --section-padding-bottom:        120px;
+  --section-padding-left:           96px;
+  --section-padding-right:          96px;
+  --section-padding-mobile-top:     64px;
+  --section-padding-mobile-bottom:  64px;
+  --section-padding-mobile-left:    24px;
+  --section-padding-mobile-right:   24px;
+
+ 
+  --content-max-width: 1200px;
+
+  
+  --navbar-height: 64px;
+  --navbar-blur:   12px;
+
+ 
+  --navbar-wordmark-size:     18px;
+  --navbar-wordmark-tracking: 0.04em;
+
+  
+  --burger-size:        24px;
+  --burger-line-width:  24px;
+  --burger-line-height: 2px;
+
+  
+  --diamond-size: 22px;
+
+  
+  --divider-width:  84%;
+  --divider-height: 1px;
+  --divider-top:    55vh;
+
+
+  --wordmark-clear-space:       24px;
+  --wordmark-clear-space-alone: 32px;
+}
+
+
+/* === MOTION === */
+:root {
+  --ease-standard:     cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-standard: 0.9s;
+  --duration-quick:    0.25s;
+  --scroll-scrub-lag:  1s;
+}
+
+/* === Z-INDEX LAYERING === */                              
+:root {
+  --z-bg:      0;  
+  --z-canvas:  1;  
+  --z-overlay: 2;  
+  --z-navbar:  3;  
+}

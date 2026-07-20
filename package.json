@@ -1,0 +1,22 @@
+{
+  "name": "arcis",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.61.1",
+    "vite": "^8.1.1"
+  },
+  "dependencies": {
+    "@fontsource/fraunces": "^5.2.9",
+    "@fontsource/inter": "^5.2.8",
+    "gsap": "^3.15.0",
+    "lil-gui": "^0.21.0",
+    "three": "^0.185.1"
+  }
+}
